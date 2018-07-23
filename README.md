@@ -10,8 +10,12 @@ Included in this repository is a text file of Alice's Adventures in Wonderland, 
 
 To call the program:
     **./wordcount.py {--count | --topcount} inputFile [outputFile]**
+
     *ex: ./wordcount.py --count alice.txt*
-        This command will output to the console a list of each unique word found in the text file and it's count (the number of times it occurs)
+
+        The above command will output to the console a list of each unique word found in the text of alice.txt along with each word's count (the number of times it occurs)
+
+
 **This exercise was taken from an online Python class taught by Google; however, the code is entirely mine.**
 *http://code.google.com/edu/languages/google-python-class/*
 
