@@ -1,22 +1,32 @@
-#!/usr/bin/python -tt
+#!/usr/bin/python
 # Author  : Andrew Battat
 # Date    : 7-23-18
 
 '''
 Description:
   This program accepts a text file and returns the number of occurences of each word in the file
+
   The programm is called like such:
-    ./wordcount.py {--count | --topcount} file
-  The user gives the program one of two options:
+    ./wordcount.py {--count | --topcount} input_file [output_file]
+
+  The user must give the program one of two count options:
     count:
       prints a sorted list of every word found in the text file along with each word's number of occurences
     topcount:
       prints the 20 most common words found in the text file along with each word's number of occurences
+
+  The user must give the program an input file, which is the text file the program reads from
+
+  The user has the option of giving the program an output_file
+    If an output file is given, the program will output to that file
+    If no output file is given, the program will output to stdout
+
   The program will output as such:
-    word1 word_count
-    word2 word_count
+    word1 word1_count
+    word2 word2_count
     ...
 '''
+
 import sys
 import re
 
@@ -51,12 +61,12 @@ def returns_word_count_dict(filename):
 
 
 '''
-print_words is a function that takes in a text file and returns a string containing unique word in the text file along with the word's number of occurences
+print_words is a function that takes in a text file and returns a string content
+content contains all the unique word in the text file along with each word's number of occurences
 '''
 def print_words(filename):
   content = ''
   word_count_dict = returns_word_count_dict(filename)
-  # for word in sorted(word_count_dict.keys()):
   for word in word_count_dict.keys():
     content += word + ' ' + str(word_count_dict[word]) + '\n'
   return content
@@ -89,7 +99,7 @@ def main():
   option = sys.argv[1]
   filename = sys.argv[2]
   saveFile = ''
-  if len(sys.argv) == 4:
+  if len(sys.argv) == 4:  # if length is 4, an output file has been given
     saveFile = open(sys.argv[3], 'w')
 
   if option == '--count':
